@@ -76,7 +76,6 @@ class CardsDatabase {
       List cards = dt['data'];
       cards.forEach((element) async {
         Map data = element as Map;
-        print("oy oy ");
         print(data);
 
         int atk = (data.containsKey('atk')) ? data['atk'] : -1;

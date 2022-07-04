@@ -37,7 +37,7 @@ class _DetailState extends State<Detail> {
         builder: (context, snapshot) {
           if (snapshot.connectionState != ConnectionState.done) {
             return Scaffold(
-              backgroundColor: Colors.blue[900],
+              backgroundColor: Colors.grey[400],
               body: SpinKitWanderingCubes(
                 color: Colors.white,
                 size: 50,
@@ -53,23 +53,27 @@ class _DetailState extends State<Detail> {
                   ),
                 ),
                   centerTitle: true,
+                  backgroundColor: Colors.grey[800],
                 ),
                 body: SingleChildScrollView(
                   child: Container(
                     margin: EdgeInsets.all(20),
                     child: Column(
                       children: <Widget>[
+                        
+                        // SizedBox(height: 10.0),
+                        Image.network(ygoCard.image_url),
+                        SizedBox(height: 18.0),
                         Text(
                           ygoCard.name,
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            fontSize: 30.0,
+                            fontSize: 40.0,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        SizedBox(height: 30.0),
-                        Image.network(ygoCard.image_url),
-                        SizedBox(height: 30.0),
+                        SizedBox(height: 18.0),
+
                         Container(
                           padding: EdgeInsets.all(10),
                           color: Color.fromARGB(255, 255, 243, 206),
@@ -108,7 +112,7 @@ class _DetailState extends State<Detail> {
                               (() {
                                 if (ygoCard.level != -1) {
                                   return Text(
-                                    "Level: (" + ygoCard.level.toString() + ")",
+                                    "Level: " + ygoCard.level.toString(),
                                     style: TextStyle(
                                       fontSize: 25.0,
                                       fontWeight: FontWeight.bold,
@@ -180,7 +184,7 @@ class _DetailState extends State<Detail> {
   void populate() async {
     this.populated = (() async {
       this.ygoCard = (await CardsDatabase.instance.readCard(data['id']))!;
-      print('dah ke read cuy');
+      print('detail read successfuly');
     })();
   }
 }

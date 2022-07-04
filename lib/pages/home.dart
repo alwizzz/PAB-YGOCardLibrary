@@ -20,7 +20,6 @@ class _HomeState extends State<Home> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    // setupYGOCard();
     this.populate();
   }
 
@@ -35,7 +34,7 @@ class _HomeState extends State<Home> {
         builder: (context, snapshot) {
           if (snapshot.connectionState != ConnectionState.done) {
             return Scaffold(
-              backgroundColor: Colors.blue[900],
+              backgroundColor: Colors.grey[400],
               body: SpinKitWanderingCubes(
                 color: Colors.white,
                 size: 50,
@@ -51,6 +50,7 @@ class _HomeState extends State<Home> {
                   ),
                 ),
                 centerTitle: true,
+                backgroundColor: Colors.grey[800],
               ),
               body: Container(
                 margin: EdgeInsets.all(20),
@@ -60,7 +60,7 @@ class _HomeState extends State<Home> {
                       padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 2.0),
                       child: TextField(
                         onSubmitted: (text) {
-                          print("za text is $text");
+                          print("text on search field is $text");
                           this.populate(text);
                         },
                         style: TextStyle(
@@ -117,7 +117,6 @@ class _HomeState extends State<Home> {
     if (name == "") {
       this.populated = (() async {
         this.ygoCards = await CardsDatabase.instance.readAllCard();
-        print('dah cuy');
         print('ygoCards count = ${ygoCards.length}');
       })();
 
@@ -126,8 +125,7 @@ class _HomeState extends State<Home> {
     } else {
       this.populated = (() async {
         this.ygoCards = await CardsDatabase.instance.readCardWithFuzzyName(name);
-        print('fuzzy name ni');
-        print('ygoCards count = ${ygoCards.length}');
+        print('ygoCards fuzzy count = ${ygoCards.length}');
       })();
 
       setState(() {});
