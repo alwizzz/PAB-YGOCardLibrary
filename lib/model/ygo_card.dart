@@ -129,9 +129,9 @@ class YGOCard {
 
   static Color getColor(String type) {
     // print(type);
-    if (type == "Spell YGOCard") {
+    if (type == "Spell Card") {
       return Color.fromARGB(255, 73, 213, 150);
-    } else if (type == "Trap YGOCard") {
+    } else if (type == "Trap Card") {
       return Color.fromARGB(255, 200, 93, 161);
     } else if (type == "Normal Monster") {
       return Color.fromARGB(255, 183, 148, 94);
@@ -141,15 +141,15 @@ class YGOCard {
     } else if (type == "Fusion Monster") {
       return Color.fromARGB(255, 154, 113, 199);
     } else if (type == "Ritual Monster" || type == "Ritual Effect Monster") {
-      return Color.fromARGB(255, 78, 138, 203);
+      return Color.fromARGB(255, 139, 195, 255);
     } else if (type == "Synchro Monster") {
-      return Color.fromARGB(255, 192,191,192);
+      return Color.fromARGB(255, 199, 198, 198);
     } else if (type == "Link Monster") {
       return Color.fromARGB(255, 39, 129, 255);
     } else if (type == "XYZ Monster") {
-      return Color.fromARGB(255, 73, 74, 73);
+      return Color.fromARGB(255, 156, 156, 156);
     } else {
-      return Color.fromARGB(255, 225, 221, 217);
+      return Color.fromARGB(255, 173, 206, 6);
     }
   }
 }
